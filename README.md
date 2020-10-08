@@ -1,1 +1,1 @@
-Ruby simples exarcises or examples.
+Ruby simples exercises or examples.
