@@ -1,6 +1,8 @@
 require_relative 'node'
 
 class Tree
+  attr_accessor :root
+
   def initialize(arr)
     arr.sort!.uniq!
     @root = build_tree(arr)
@@ -131,8 +133,40 @@ class Tree
   end
 
   def depth(node)
-    
+    current = @root
+    depth = 0
+
+    until current.nil?
+      if current.value == node.value
+        return depth
+      elsif current.value < node.value
+        depth += 1
+        current = current.right_child
+      else
+        depth += 1
+        current = current.left_child
+      end
+    end
   end
+
+  def balanced?(node = @root, height_left = 0, height_right = 0)
+    return true if node.nil?
+
+    height_left = height(node.left_child) if node.left_child
+    height_right = height(node.right_child) if node.right_child
+
+    if (height_left - height_right).abs <= 1 && balanced?(node.left_child) && balanced?(node.right_child)
+      return true
+    end
+    false
+  end
+  def rebalance
+    return if balanced?
+
+    data = level_order.sort!
+    self.root = build_tree(data)
+  end
+
 
   def pretty_print(node = @root, prefix = '', is_left = true)
     pretty_print(node.right_child, "#{prefix}#{is_left ? '│   ' : '    '}", false) if node.right_child
@@ -140,24 +174,3 @@ class Tree
     pretty_print(node.left_child, "#{prefix}#{is_left ? '    ' : '│   '}", true) if node.left_child
   end
 end
-
-data = (1..8).to_a
-# data = Array.new(20){1..100)}
-
-tree = Tree.new(data)
-tree.pretty_print
-
-puts "preorder"
-puts "#{tree.preorder}"
-
-puts "Inorder"
-puts "#{tree.inorder}"
-
-puts "Postorder"
-puts "#{tree.postorder}"
-
-puts "height tree"
-puts tree.height
-
-puts "height node 3"
-puts tree.height(tree.find 3)
