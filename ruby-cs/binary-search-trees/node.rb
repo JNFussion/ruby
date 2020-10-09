@@ -1,3 +1,6 @@
+
+# Node of a binary search tree. It has a value or key and two nodes as children.
+
 class Node
   include Comparable
   attr_accessor :value, :left_child, :right_child

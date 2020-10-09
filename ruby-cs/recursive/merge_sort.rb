@@ -1,3 +1,9 @@
+
+#Sorting algorithm. It's divide an array in half and when they are sorted
+# it merges these halves.
+# It's a recursive recursive algorithm.
+# The base case is an array of length 1 because an array of one element is sorted.
+
 def merge_sort(arr)
   return arr if arr.length <= 1
 

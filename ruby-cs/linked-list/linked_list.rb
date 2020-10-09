@@ -1,5 +1,9 @@
 require_relative 'node'
 
+# Type of data structure. List of nodes. A node points to the next node in a linear way.
+# Head: indicates the first element of the list.
+# Tail: indicates the last element of the list. This node points to NULL.
+
 class LinkedList
   def initilize
     @head = nil
