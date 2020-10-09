@@ -3,10 +3,10 @@ def merge_sort(arr)
 
   left = []
   rigth = []
-  arr.each_with_index{ |value, index| index < arr.length/2 ? left << value : rigth << value}
+  arr.each_with_index { |value, index| index < arr.length / 2 ? left << value : rigth << value }
   left = merge_sort left
   rigth = merge_sort rigth
-  merge(left,rigth)
+  merge(left, rigth)
 end
 
 def merge(left, rigth)
@@ -16,10 +16,10 @@ def merge(left, rigth)
   result << rigth.shift until rigth.empty?
   result
 end
-a = (0..rand(200)+1).to_a.shuffle
+a = (0..rand(1..200)).to_a.shuffle
 
-puts "Unsorted:"
+puts 'Unsorted:'
 puts a.to_s
 puts
-puts "Sorted:"
+puts 'Sorted:'
 puts merge_sort(a).to_s

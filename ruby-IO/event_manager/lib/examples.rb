@@ -1,31 +1,32 @@
 require 'csv'
-# Read the whole file and display it 
+# Read the whole file and display it
 
-contents = File.read "event_attendees.csv"
-#puts contents
+contents = File.read 'event_attendees.csv'
+# puts contents
 
-#Read each line of the file and display 1 columns.
+# Read each line of the file and display 1 columns.
 puts "\n"
-lines = File.readlines "event_attendees.csv"
+lines = File.readlines 'event_attendees.csv'
 lines.each_with_index do |line, index|
-    next if index == 0
-    columns = line.split(",")
-    name  =columns[2]
-    puts name
+  next if index == 0
+
+  columns = line.split(',')
+  name = columns[2]
+  puts name
 end
 
 # Use CSV library
 puts "\n"
-contents = CSV.open "event_attendees.csv", headers: true
+contents = CSV.open 'event_attendees.csv', headers: true
 contents.each do |row|
-    name = row[2]
-    puts name
+  name = row[2]
+  puts name
 end
 
 # Use CSV library, convert headers name to symbols
 puts "\n"
-contents = CSV.open "event_attendees.csv", headers: true, header_converters: :symbol
+contents = CSV.open 'event_attendees.csv', headers: true, header_converters: :symbol
 contents.each do |row|
-    name = row[:first_name]
-    puts name
+  name = row[:first_name]
+  puts name
 end

@@ -1,17 +1,15 @@
 require_relative 'linked_list'
 
-
 list = LinkedList.new
 
 30.times do |num|
-    list.append num
+  list.append num
 end
 
-puts "append:"
+puts 'append:'
 puts list.to_s
 
-
-puts "prepend 1: "
+puts 'prepend 1: '
 puts list.prepend 1
 
 puts 'append 100: '
@@ -44,10 +42,8 @@ puts list.contains? 100
 puts 'contains 10'
 puts list.contains? 10
 
-
 puts 'find 100'
 puts list.find 100
-
 
 puts 'find 10'
 puts list.find 10
@@ -65,13 +61,13 @@ puts 'Insert 666 at 0'
 puts list.insert_at(666, 0)
 
 puts "Insert 666 at #{list.size - 1}"
-puts list.insert_at(666, list.size-1)
+puts list.insert_at(666, list.size - 1)
 
-puts "Remove at  0"
+puts 'Remove at  0'
 puts list.remove_at 0
 
 puts "Remove at #{list.size - 1}"
-puts list.remove_at(list.size-1)
+puts list.remove_at(list.size - 1)
 
-puts "Remove at 10"
+puts 'Remove at 10'
 puts list.remove_at 10
